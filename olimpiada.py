@@ -75,9 +75,11 @@ while True:
     enter = enter.split(" ")
     call = int(enter[1])
 
-    if enter[0].lower() == "в":
+    if enter[0][0].lower() == "в":
         while call > floors or call < 1:
             enter = input("Try again: ")
+            while enter.count(" ") < 1:
+                enter = input("Try again: ")
             enter = enter.split(" ")
             call = int(enter[1])
 
@@ -112,6 +114,8 @@ while True:
     if enter[0][0].lower() == "п":
         while call > floors or call < 1 or int(enter[0][1]) > 3 or int(enter[0][1]) < 1:
             enter = input("Try again: ")
+            while enter.count(" ") < 1:
+                enter = input("Try again: ")
             enter = enter.split(" ")
             call = int(enter[1])
 
