@@ -164,10 +164,10 @@
     var B = new Elevator(12, 0.5, "B", 0, 2, 0);
     var C = new Elevator(25, 0.5, "C", 0, 2, 0);
 
-    function update(lift_aimd) {
+    function update(lift_moved) {
         for (let i = 1; i <= 25; i++) {
-            var element = document.getElementById(lift_aimd.name + "_" + i.toString());
-            if (i === lift_aimd.floor) {
+            var element = document.getElementById(lift_moved.name + "_" + i.toString());
+            if (i === lift_moved.floor) {
                 element.innerHTML = status[1];
             } else {
                 element.innerHTML = status[0];
@@ -215,11 +215,11 @@
         C_diff = Math.abs(call_floor - C.floor);
 
         if (call_floor === A.floor) {
-            doors(A, call_floor)
+            await doors(A, call_floor)
         } else if (call_floor === B.floor) {
-            doors(B, call_floor)
+            await doors(B, call_floor)
         } else if (call_floor === C.floor) {
-            doors(C, call_floor)
+            await doors(C, call_floor)
         }
         else if (A_diff < B_diff && A_diff < C_diff) {
             await move(A, call_floor)
